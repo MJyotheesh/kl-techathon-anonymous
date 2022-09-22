@@ -1,23 +1,54 @@
-import React, { useState, useEffect } from "react";
-import { Col, Row, Layout } from "antd";
-import _ from "lodash";
+import React, { useState } from "react";
+import {
+  EditOutlined,
+  CompassOutlined,
+  ReadOutlined
+} from "@ant-design/icons";
+import { Menu, Layout } from "antd";
+import { useRouter } from "next/router";
+import { get } from "lodash";
 
-const { Content } = Layout;
+const { Sider, Content } = Layout;
+
+function getItem(label, key, icon, children, type) {
+  return {
+    key,
+    icon,
+    children,
+    label,
+    type,
+  };
+}
+
+const items = [
+    getItem("Explore", "/explore", <CompassOutlined />),
+    getItem("My Feed", "/my-feed", <ReadOutlined />    ),
+    getItem("Drafts" , "/draft", <EditOutlined />),
+  ];
 
 const SideMenu = () => {
+  const router = useRouter();
+  const [menu, setMenu] = useState(get(router,'route'));
 
-    return (
-        <Layout>
-            <Content>
-                <Row>
-                    <Col xs={24} sm={24} md={18} lg={18} xl={18}>
-                        <div>My Feed</div>
-                    </Col>
-                    <Col xs={0} sm={0} md={2} lg={3} xl={3} />
-                </Row>
-            </Content>
-        </Layout>
-    );
+  return (
+    <Sider>
+      <Content>
+      <Menu
+        defaultSelectedKeys={[menu]}
+        mode="inline"
+        theme="light"
+        items={items}
+        selectedKeys={[menu]}
+        onClick={(e)=>{
+          console.log('on change')
+          console.log('on change menu',e)
+          setMenu(e.key)
+          router.push(`/${get(e,'key')}`);
+        }}
+      />
+      </Content>
+    </Sider>
+  );
 };
 
 export default SideMenu;
