@@ -7,8 +7,6 @@ import GoogleUsers from "./google-oauth";
 const UserDetail = (response) => {
     const [form] = Form.useForm();
 
-    console.log(response);
-
     const userDetails = localStorage.getItem("userInfo")
 
     const onFinish = async (data) => {
