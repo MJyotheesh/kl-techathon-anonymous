@@ -32,9 +32,11 @@ const SideMenu = () => {
 
   return (
     <Sider width='23%'>
-      <Content  style={{margin: '20px', background: 'f0f2f5'}}>
+      <Content 
+       style={{margin: '0 20px'}}
+       >
       <Menu
-          style={{borderRadius: '10px' }}
+          style={{borderRadius: '10px' , overflow: 'hidden'}}
         defaultSelectedKeys={[menu]}
         mode="inline"
         theme="light"

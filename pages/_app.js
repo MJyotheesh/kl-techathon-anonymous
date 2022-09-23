@@ -3,6 +3,8 @@ require("./index.scss");
 require("../styles/explore.css");
 require("../styles/toolbar.css")
 import 'antd/dist/antd.css';
+import "react-quill/dist/quill.snow.css";
+
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
 import AppRoute from './app_route';
 

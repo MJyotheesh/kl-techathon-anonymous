@@ -8,15 +8,16 @@ import FooterSection from "../components/footer";
 function AppRoute({ Component, pageProps }) {
   const router = useRouter();
   const RenderContent = () => {
-    if (router.route === "/explore" || router.route === "/my-feed") {
+    if (router.route === "/explore" || router.route === "/my-feed" || router.route === "/draft") {
       return (
         <>
         <Layout>
           <HeaderDetails />
           <Layout
+          className="layout-body"
             style={{
               minHeight: "78vh",
-              marginTop: '20px 0px'
+              marginTop: '20px',
             }}
           >
             <SideMenu />    
@@ -28,23 +29,23 @@ function AppRoute({ Component, pageProps }) {
         </>
       );
     }
-    if( router.route === "/draft"){
-      return(<>
-       <Layout>
-          <HeaderDetails />
-          <Layout
-            style={{
-              minHeight: "78vh",
-              marginTop: '20px 0px'
-            }}
-          >
-            <SideMenu />    
-            <Component {...pageProps}/>
-          </Layout>
-          <FooterSection></FooterSection>
-          </Layout>
-      </>)
-    }
+    // if( router.route === "/draft"){
+    //   return(<>
+    //    <Layout>
+    //       <HeaderDetails />
+    //       <Layout
+    //         style={{
+    //           minHeight: "78vh",
+    //           marginTop: '20px'
+    //         }}
+    //       >
+    //         <SideMenu />    
+    //         <Component {...pageProps}/>
+    //       </Layout>
+    //       <FooterSection></FooterSection>
+    //       </Layout>
+    //   </>)
+    // }
     return (
         <>
           <HeaderDetails />
