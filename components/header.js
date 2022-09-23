@@ -3,9 +3,7 @@ import { Layout, Row, Col } from "antd";
 
 const HeaderDetails = () => {
     return (
-        <div>
-                <Layout.Header></Layout.Header>
-        </div>
+         <Layout.Header style={{backgroundColor: 'white'}}></Layout.Header>
     );
 };
 

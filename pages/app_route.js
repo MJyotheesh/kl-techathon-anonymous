@@ -1,14 +1,14 @@
 import React from "react";
 import { useRouter } from "next/router";
 import HeaderDetails from "../components/header";
-import { Layout } from "antd";
+import { Layout, Row, Col, Menu } from "antd";
 import SideMenu from "../components/menu";
 import FooterSection from "../components/footer";
-
+// #f0f2f5
 function AppRoute({ Component, pageProps }) {
   const router = useRouter();
   const RenderContent = () => {
-    if (router.route === "/explore" || router.route === "/my-feed" || router.route === "/draft") {
+    if (router.route === "/explore" || router.route === "/my-feed") {
       return (
         <>
         <Layout>
@@ -16,16 +16,34 @@ function AppRoute({ Component, pageProps }) {
           <Layout
             style={{
               minHeight: "78vh",
-              background: "rgb(226 232 240 / 80%)",
+              marginTop: '20px 0px'
             }}
           >
             <SideMenu />    
-            <Component {...pageProps} />
+            <Component {...pageProps}/>
+            <SideMenu />    
           </Layout>
           <FooterSection></FooterSection>
           </Layout>
         </>
       );
+    }
+    if( router.route === "/draft"){
+      return(<>
+       <Layout>
+          <HeaderDetails />
+          <Layout
+            style={{
+              minHeight: "78vh",
+              marginTop: '20px 0px'
+            }}
+          >
+            <SideMenu />    
+            <Component {...pageProps}/>
+          </Layout>
+          <FooterSection></FooterSection>
+          </Layout>
+      </>)
     }
     return (
         <>

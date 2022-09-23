@@ -31,9 +31,10 @@ const SideMenu = () => {
   const [menu, setMenu] = useState(get(router,'route'));
 
   return (
-    <Sider>
-      <Content>
+    <Sider width='23%'>
+      <Content  style={{margin: '20px', background: 'f0f2f5'}}>
       <Menu
+          style={{borderRadius: '10px' }}
         defaultSelectedKeys={[menu]}
         mode="inline"
         theme="light"
