@@ -77,7 +77,9 @@ const Drafting = (props) => {
   return (
     <>
       <Content>
-        <Card style={{ margin: "20px", borderRadius: '10px' }}>
+        <Card style={{ margin: "20px", borderRadius: '10px',  overflow: "scroll",
+          overflowY: 'none',
+           height:'75vh'  }}>
           <Form
             form={form}
             onFinish={onFinish}

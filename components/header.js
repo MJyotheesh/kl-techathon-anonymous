@@ -10,14 +10,13 @@ const HeaderDetails = () => {
   return (
     <Layout.Header
       style={{
-        backgroundColor: "white",
-        border: "1px solid green",
+        backgroundColor: "#1890ff",
         display: "flex",
         alignItems: "center",
       }}
     >
       <Content>
-        <Row align="middle" style={{ border: "1px solid red" }}>
+        <Row align="middle">
           <Col span={4}>
             {" "}
             <Image

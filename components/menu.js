@@ -60,7 +60,9 @@ const SideMenu = () => {
           background: "white",
           minHeight: "300px",
           borderRadius: "10px",
-          overflow: "hidden",
+          overflow: "scroll",
+          overflowY: 'none',
+           height:'75vh' 
         }}
       >
         <Menu
@@ -77,7 +79,7 @@ const SideMenu = () => {
             router.push(`/${get(e, "key")}`);
           }}
         />
-        <Divider style={{ margin: "10px", minWidth: "95%" }} />
+        <Divider style={{ margin: "40px 0"}} />
         <h1 style={{textAlign:'center'}}>
           {" "}
           Trending Tag <RiseOutlined />

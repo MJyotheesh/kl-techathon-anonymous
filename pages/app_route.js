@@ -8,7 +8,7 @@ import FooterSection from "../components/footer";
 function AppRoute({ Component, pageProps }) {
   const router = useRouter();
   const RenderContent = () => {
-    if (router.route === "/explore" || router.route === "/my-feed" || router.route === "/draft") {
+    if (router.route === "/explore" || router.route === "/my-feed" || router.route === "/draft" || router.route === '/question/[...pd]') {
       return (
         <>
         <Layout>
@@ -16,15 +16,14 @@ function AppRoute({ Component, pageProps }) {
           <Layout
           className="layout-body"
             style={{
-              minHeight: "78vh",
+              // minHeight: "78vh",
               marginTop: '20px',
-              overflowY: 'scroll',
-              height: '78vh'
+              // overflowY: 'scroll',
+              // height: '78vh'
             }}
           >
             <SideMenu />    
             <Component {...pageProps}/>
-            <SideMenu />    
           </Layout>
           <FooterSection></FooterSection>
           </Layout>
