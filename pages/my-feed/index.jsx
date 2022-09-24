@@ -1,17 +1,11 @@
 import { Layout, Card, Avatar } from "antd";
 import React, { useEffect, useState } from "react";
-import {
-  EditOutlined,
-  EllipsisOutlined,
-  SettingOutlined,
-  CommentOutlined,
-} from "@ant-design/icons";
+import {  CommentOutlined } from "@ant-design/icons";
 import dynamic from "next/dynamic";
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 import { getData } from "../../shared/api/url-helper";
 import { get } from "lodash";
-import RenderText from "../../components/RenderText";
 import { useRouter } from "next/router";
 const { Meta } = Card;
 
@@ -23,7 +17,6 @@ function MyFeed() {
   useEffect(() => {
     getData("post/get-all-posts")
       .then((res) => {
-        console.log('post respone', get(res, "data.data"));
         setPostArray(get(res, "data.data"));
       })
       .catch((err) => {
@@ -32,33 +25,33 @@ function MyFeed() {
   }, []);
 
   const onCardClick = (value) => {
-    console.log('value', value);
+    console.log("value", value);
     const { _id } = value;
-    router.push(`/question/${_id}`)
-  }
+    router.push(`/question/${_id}`);
+  };
   return (
     <>
-      <Content>
+      <Content
+        style={{ overflow: "scroll", overflowY: "none", height: "75vh" }}
+      >
         {postArray.map((item) => {
           return (
             <Card
-              style={{ margin: "20px" }}
-              actions={[
-                <CommentOutlined onClick={() => onCardClick(item)}/>,
-              ]}
+              style={{ margin: "20px", borderRadius: '20px' }}
+              actions={[<CommentOutlined onClick={() => onCardClick(item)} />]}
             >
               <Meta
                 avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
-                title={get(item, 'title')}
+                title={get(item, "title")}
               ></Meta>
-              <Card style={{border: 'none'}}>
-              <ReactQuill
-              readOnly
-              theme="snow"
-              value={get(item, "content", "")}
-              modules={{ toolbar: false }}
-            />
-            </Card>
+              <Card style={{ border: "none" }}>
+                <ReactQuill
+                  readOnly
+                  theme="snow"
+                  value={get(item, "content", "")}
+                  modules={{ toolbar: false }}
+                />
+              </Card>
             </Card>
           );
         })}

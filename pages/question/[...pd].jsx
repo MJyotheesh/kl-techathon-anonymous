@@ -15,9 +15,7 @@ const Question = (props) => {
   const [postData, setPostData] = useState({});
   const [style, setStyle] = useState({});
   const [value, setValue] = useState("");
-//   console.log('pd', pd); 
     useEffect(() => {
-        console.log('id', pd);
         getDataByID('post/get', get(pd, '[0]', '')).then((res) => {
             console.log('res', res);
             const post = get(res, 'data.data', {});
@@ -41,8 +39,8 @@ const Question = (props) => {
     
     return (
         <>
-             <Card
-              style={{ margin: "20px" }}
+             <Card 
+              style={{ margin: "20px", overflow:'scroll', height:'75vh' }}
             >
               <Meta
                 avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
