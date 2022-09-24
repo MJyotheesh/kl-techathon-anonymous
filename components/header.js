@@ -1,22 +1,51 @@
 import React from "react";
-import { Layout, Row, Col } from "antd";
-//import Container from "./container";
+import { Layout, Row, Col, Button } from "antd";
+import { LogoutOutlined, LoginOutlined } from "@ant-design/icons";
+import Image from "next/image";
+import Link from "next/link";
+import Logo from "../public/logo.png";
+import { isEmpty, get } from "lodash";
+import { useRouter } from "next/router";
+
+const { Sider, Content } = Layout;
 
 const HeaderDetails = () => {
+    const router = useRouter();
+
+    const handleLogout = () => {
+        localStorage.removeItem("userInfo");
+        router.push("/login");
+    }
+
     return (
-        <div>
-            <Layout style={{ backgroundColor: 'white', height: 80 }}>
-                <Row gutter={16} justify="center" align="middle">
-                    <Col span={24}>
-                        <header>
-                            <div style={{ color: 'blue' }}>
-                                Anonymous
-                            </div>
-                        </header>
+        <Layout.Header
+            style={{
+                backgroundColor: "#1890ff",
+                display: "flex",
+                alignItems: "center",
+            }}
+        >
+            <Content>
+                <Row align="middle">
+                    <Col span={4}>
+                        {" "}
+                        <Image
+                            src={Logo}
+                            width="100%"
+                            height={100}
+                        />
                     </Col>
+
+                    <Col span={18}></Col>
+                    <Col span={2}>
+                        <Button style={{ color: "red" }} onClick={handleLogout}>
+                            Logout <LogoutOutlined />
+                        </Button>
+                    </Col>
+                    <Col></Col>
                 </Row>
-            </Layout>
-        </div>
+            </Content>
+        </Layout.Header>
     );
 };
 

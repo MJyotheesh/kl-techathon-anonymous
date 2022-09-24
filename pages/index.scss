@@ -1,3 +1,148 @@
 body {
-    background: #F5F5F5 !important;
+    background: #f0f2f5 !important;
+    font-family: inherit !important;
+}
+
+.social-log-buttons {
+    width: 70%;
+    margin-left: 29%;
+
+    .google-comps {
+        width: 50%;
+
+        .googlelogin-btn {
+            background: #fff;
+            color: #333 !important;
+            padding: 12px;
+            width: calc(42% - 3px);
+            margin-left: 10%;
+            border: 1px solid #ccc !important;
+            border-radius: 20px !important;
+            font-size: 22px;
+            transition: all 0.3s linear;
+            cursor: pointer;
+
+            .googleicon-login {
+                width: 34px;
+                height: auto;
+                margin-right: 10px;
+                margin-bottom: 5px;
+
+                &:hover {
+                    transform: rotateY(180deg);
+                }
+            }
+
+            &:hover {
+                box-shadow: 0px 0px 20px #ccc !important;
+            }
+
+        }
+    }
+}
+
+.common-loader {
+    position: absolute;
+    top: 40%;
+    left: 48%
+}
+
+.ant-layout-sider-children {
+    background-color: #f0f2f5;
+    height: 75vh !important;
+    margin-top: 20px;
+}
+
+.ant-layout-header {
+    height: 10vh !important;
+}
+
+.ant-layout-footer {
+    height: 10vh !important;
+    background-color: #1890ff;
+}
+
+.layout-body {}
+
+.ant-layout-sider {
+    background-color: #f0f2f5;
+}
+
+.ql-editor {
+    min-height: 350px;
+}
+
+.sign-up-login {
+    letter-spacing: 0.54px;
+    font-size: 25px;
+    color: blue;
+    text-align: center;
+    font-weight: '900';
+    margin-bottom: 25px;
+    margin-top: 25%;
+    margin-right: 39%;
+}
+
+.enter-details {
+    letter-spacing: 0.54px;
+    font-size: 25px;
+    color: blue;
+    text-align: center;
+    font-weight: '900';
+    margin-bottom: 25px;
+    margin-top: 18%;
+    margin-right: 42%;
+}
+
+
+.signup-container-top {
+    margin-top: 20vh;
+}
+
+.sign-up-row {
+    margin-top: 16px;
+
+    .sign-up-form {
+        width: 64% !important;
+
+        Input,
+        Input:hover,
+        Input:focus {
+            width: 90%;
+            height: 48px;
+            border-color: #dcdcdc;
+            border-radius: 10px;
+            box-shadow: none;
+        }
+
+        .ant-btn {
+            width: 50%;
+            height: 50px;
+            background: blue 0% 0% no-repeat padding-box;
+            border-radius: 15px;
+            color: #ffffff;
+            font-size: 14px;
+            border-color: blue;
+            margin-left: 19%;
+        }
+
+        .ant-btn:hover {
+            width: 60%;
+            margin-left: 14%;
+            background: #ffffff 0% 0% no-repeat padding-box;
+            color: blue;
+            border-color: blue;
+        }
+
+        .ant-btn:focus {
+            width: 60%;
+            margin-left: 14%;
+            height: 50px;
+            background: blue 0% 0% no-repeat padding-box;
+            border-radius: 15px;
+            color: #ffffff;
+            font-size: 14px;
+            border-color: blue;
+        }
+    }
 }
