@@ -9,7 +9,7 @@ function AppRoute({ Component, pageProps }) {
   const router = useRouter();
 
   const RenderContent = () => {
-    if (router.route === "/explore" || router.route === "/my-feed" || router.route === "/draft") {
+    if (router.route === "/explore" || router.route === "/my-feed" || router.route === "/draft" || router.route === '/question/[...pd]') {
       return (
         <>
           <Layout>

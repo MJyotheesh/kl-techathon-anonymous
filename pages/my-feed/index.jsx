@@ -4,6 +4,7 @@ import {
   EditOutlined,
   EllipsisOutlined,
   SettingOutlined,
+  CommentOutlined,
 } from "@ant-design/icons";
 import dynamic from "next/dynamic";
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
@@ -11,12 +12,14 @@ const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 import { getData } from "../../shared/api/url-helper";
 import { get } from "lodash";
 import RenderText from "../../components/RenderText";
+import { useRouter } from "next/router";
 const { Meta } = Card;
 
 const { Content } = Layout;
 
 function MyFeed() {
   const [postArray, setPostArray] = useState([]);
+  const router = useRouter();
   useEffect(() => {
     getData("post/get-all-posts")
       .then((res) => {
@@ -27,6 +30,12 @@ function MyFeed() {
         console.log(err);
       });
   }, []);
+
+  const onCardClick = (value) => {
+    console.log('value', value);
+    const { _id } = value;
+    router.push(`/question/${_id}`)
+  }
   return (
     <>
       <Content>
@@ -35,9 +44,7 @@ function MyFeed() {
             <Card
               style={{ margin: "20px" }}
               actions={[
-                <SettingOutlined key="setting" />,
-                <EditOutlined key="edit" />,
-                <EllipsisOutlined key="ellipsis" />,
+                <CommentOutlined onClick={() => onCardClick(item)}/>,
               ]}
             >
               <Meta

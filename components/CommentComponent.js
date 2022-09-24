@@ -1,8 +1,13 @@
 import { DislikeFilled, DislikeOutlined, LikeFilled, LikeOutlined } from '@ant-design/icons';
 import { Avatar, Comment, Tooltip } from 'antd';
+import { get } from 'lodash';
 import React, { createElement, useState } from 'react';
+import dynamic from "next/dynamic";
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
-const CommentComponent = () => {
+
+const CommentComponent = (props) => {
+  const { data } = props;
   const [likes, setLikes] = useState(0);
   const [dislikes, setDislikes] = useState(0);
   const [action, setAction] = useState(null);
@@ -34,23 +39,22 @@ const CommentComponent = () => {
     </Tooltip>,
     <span key="comment-basic-reply-to">Reply to</span>,
   ];
+  // const reactQuill = () => {
+  //   return (
+      
+  //   )
+  // }
   return (
     <Comment
       actions={actions}
-      author={<a>Han Solo</a>}
+      author={get(data, 'user_id.user_name', '')}
       avatar={<Avatar src="https://joeschmoe.io/api/v1/random" alt="Han Solo" />}
-      content={
-        <p>
-          We supply a series of design principles, practical patterns and high quality design
-          resources (Sketch and Axure), to help people create their product prototypes beautifully
-          and efficiently.
-        </p>
-      }
-      datetime={
-        <Tooltip title="2016-11-22 11:22:33">
-          <span>8 hours ago</span>
-        </Tooltip>
-      }
+      content={<ReactQuill
+        readOnly
+        theme="snow"
+        value={get(data, "comment", "")}
+        modules={{ toolbar: false }}
+      />}
     />
   );
 };
