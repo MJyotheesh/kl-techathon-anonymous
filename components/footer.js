@@ -1,10 +1,10 @@
 import React from 'react'
-import { Breadcrumb, Layout, Menu } from 'antd';
-const { Header, Content, Footer, Sider } = Layout;
+import { Layout } from 'antd';
+const { Footer } = Layout;
 
 function FooterSection() {
   return (
-    <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
+    <Footer style={{ textAlign: 'center' }}>Tech Cafe ©2022 Created by Anonymous</Footer>
   )
 }
 

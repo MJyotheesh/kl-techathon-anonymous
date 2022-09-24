@@ -26,7 +26,6 @@ export const getDataByID = async (url, id) => {
         const getDataById = await axios.get(`${baseUrl}/${url}/${id}`);
         return getDataById;
     } catch (err) {
-        console.error('fuck')
         throw new Error(err);
     }
 }
@@ -36,7 +35,6 @@ export const updateData = async (url, id, params) => {
         const updateData = await axios.put(`${baseUrl}/${url}/${id}`, params);
         return updateData;
     } catch (err) {
-        console.error('fuck')
         throw new Error(err);
     }
 }
