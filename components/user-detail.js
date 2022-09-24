@@ -29,7 +29,7 @@ const UserDetail = (response) => {
         <div className="sign-up-header">
             <div className="signup-container-top">
                 <div className="enter-details">
-                    Enter ur Details
+                    Enter Your Details
                 </div>
             </div>
             <Row className="sign-up-row">
@@ -47,7 +47,7 @@ const UserDetail = (response) => {
                         rules={[
                             {
                                 required: true,
-                                message: "Please Enter ur Nickname",
+                                message: "Please Enter your Nickname",
                             }
                         ]}
                     >
@@ -58,7 +58,7 @@ const UserDetail = (response) => {
                         rules={[
                             {
                                 required: true,
-                                message: "Please Enter ur Designation",
+                                message: "Please Enter your Designation",
                             }
                         ]}
                     >
