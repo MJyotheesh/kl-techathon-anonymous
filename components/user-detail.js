@@ -2,11 +2,12 @@ import { Button, Form, Input, Row } from "antd";
 import { isEmpty, get } from "lodash";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import GoogleUsers from "./google-oauth";
 import { postData } from "../shared/api/url-helper";
+import { useRouter } from "next/router";
 
 const UserDetail = (response) => {
     const [form] = Form.useForm();
+    const router = useRouter();
 
     const onFinish = async (data) => {
         const { nickname, designation, phoneNumber } = data;
@@ -16,11 +17,12 @@ const UserDetail = (response) => {
             nick_name: nickname,
             designation,
             phone_number: phoneNumber,
-            user_name: userName,
-            email: 'userMail2',
+            user_name: "userName",
+            email: "userMail",
         }
         const createUser = await postData('user/create-user', params);
         localStorage.setItem("userInfo", get(createUser, 'data.data', {}));
+        router.push("/explore");
     };
 
     return (
