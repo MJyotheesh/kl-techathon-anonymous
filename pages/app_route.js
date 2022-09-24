@@ -18,6 +18,8 @@ function AppRoute({ Component, pageProps }) {
             style={{
               minHeight: "78vh",
               marginTop: '20px',
+              overflowY: 'scroll',
+              height: '78vh'
             }}
           >
             <SideMenu />    
