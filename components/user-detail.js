@@ -17,8 +17,8 @@ const UserDetail = (response) => {
             nick_name: nickname,
             designation,
             phone_number: phoneNumber,
-            user_name: "userName",
-            email: "userMail",
+            user_name: userName,
+            email: userMail,
         }
         const createUser = await postData('user/create-user', params);
         localStorage.setItem("userInfo", get(createUser, 'data.data', {}));
