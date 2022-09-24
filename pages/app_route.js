@@ -23,14 +23,13 @@ function AppRoute({ Component, pageProps }) {
             >
               <SideMenu />
               <Component {...pageProps} />
-              <SideMenu />
             </Layout>
             <FooterSection></FooterSection>
           </Layout>
         </>
       );
     }
-   
+
     if (router.route === "/login") {
       return (
         <Component {...pageProps} />
