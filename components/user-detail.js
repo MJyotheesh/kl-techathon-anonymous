@@ -1,19 +1,26 @@
 import { Button, Form, Input, Row } from "antd";
-import { isEmpty } from "lodash";
+import { isEmpty, get } from "lodash";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import GoogleUsers from "./google-oauth";
+import { postData } from "../shared/api/url-helper";
 
 const UserDetail = (response) => {
     const [form] = Form.useForm();
 
-    const userDetails = localStorage.getItem("userInfo")
-
     const onFinish = async (data) => {
         const { nickname, designation, phoneNumber } = data;
-        if (isEmpty(data)) {
-
+        const userName = `${get(response, 'userResponse.profileObj.givenName', "")}${" "}${get(response, 'userResponse.profileObj.familyName', "")}`;
+        const userMail = get(response, 'userResponse.profileObj.email', "");
+        const params = {
+            nick_name: nickname,
+            designation,
+            phone_number: phoneNumber,
+            user_name: userName,
+            email: 'userMail2',
         }
+        const createUser = await postData('user/create-user', params);
+        localStorage.setItem("userInfo", get(createUser, 'data.data', {}));
     };
 
     return (
