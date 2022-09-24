@@ -46,30 +46,31 @@ body {
     left: 48%
 }
 
-.ant-layout-sider-children{
+.ant-layout-sider-children {
     background-color: #f0f2f5;
     height: 80vh !important;
     margin-top: 20px;
 }
 
-.ant-layout-header{
+.ant-layout-header {
     height: 10vh !important;
 }
 
-.ant-layout-footer{
+.ant-layout-footer {
     height: 10vh !important;
     background-color: red;
 }
 
-.layout-body{
+.layout-body {}
 
-}
 .ant-layout-sider {
     background-color: #f0f2f5;
 }
 
 .ql-editor {
     min-height: 350px;
+}
+
 .sign-up-login {
     letter-spacing: 0.54px;
     font-size: 25px;
@@ -77,7 +78,7 @@ body {
     text-align: center;
     font-weight: '900';
     margin-bottom: 25px;
-    margin-top: 19%;
+    margin-top: 25%;
     margin-right: 39%;
 }
 
@@ -88,7 +89,7 @@ body {
     text-align: center;
     font-weight: '900';
     margin-bottom: 25px;
-    margin-top: 16%;
+    margin-top: 18%;
     margin-right: 42%;
 }
 
